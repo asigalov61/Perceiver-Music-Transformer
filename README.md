@@ -7,5 +7,15 @@
 
 ***
 
+## Useful links:
+
+### https://github.com/google-research/perceiver-ar
+### https://github.com/lucidrains/perceiver-ar-pytorch
+### https://storage.googleapis.com/perceiver-ar/index.html
+### https://github.com/feizc/Perceiver-Music-Generation
+### https://github.com/asigalov61/tegridy-tools/tree/main/tegridy-tools/Perceiver-AR
+
+***
+
 ### Project Los Angeles
 ### Tegridy Code 2022
