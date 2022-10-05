@@ -34,5 +34,37 @@
 
 ***
 
+## Perceiver LAKH Basic MIDI Training Data Pack
+
+### 1) Based on full LAKH MIDI dataset
+### 2) Uses basic MIDI encoding
+### 3) Works with any type of data sampling and any model sequence length
+
+```
+!wget --no-check-certificate -O 'Perceiver-LAKH-Basic-MIDI-Training-Data.zip' "https://onedrive.live.com/download?cid=8A0D502FC99C608F&resid=8A0D502FC99C608F%2118747&authkey=AOh49HAnHNAvvwk"
+```
+
+### Encoding info:
+### ...
+### Compositions separator/Intro/Zero sequence: ...
+
+***
+
+## Perceiver LAKH Full MIDI Training Data Pack
+
+### 1) Based on full LAKH MIDI dataset
+### 2) Uses full MIDI encoding
+### 3) Works with any type of data sampling and any model sequence length
+
+```
+!wget --no-check-certificate -O 'Perceiver-LAKH-Full-MIDI-Training-Data.zip' "https://onedrive.live.com/download?cid=8A0D502FC99C608F&resid=8A0D502FC99C608F%2118748&authkey=ABz-kMlO-mChNN4"
+```
+
+### Encoding info:
+### ...
+### Compositions separator/Intro/Zero sequence: ...
+
+***
+
 ### Project Los Angeles
 ### Tegridy Code 2022
