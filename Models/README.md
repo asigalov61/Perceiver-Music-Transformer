@@ -1,4 +1,4 @@
-# Perceiver Music Transfomrmer Pre-Trained Models
+# Perceiver Music Transformer Pre-Trained Models
 
 ***
 
