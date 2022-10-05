@@ -1,4 +1,4 @@
-# Perceiver Music Trainsformer Training Code
+# Perceiver Music Transformer Training Code
 
 ***
 
