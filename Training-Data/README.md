@@ -9,7 +9,7 @@
 ### 3) Works with any type of data sampling and any model sequence length
 
 ```
-!wget --no-check-certificate -O 'Euterpe-Training-Data.zip' "https://onedrive.live.com/download?cid=8A0D502FC99C608F&resid=8A0D502FC99C608F%2118738&authkey=AF6k171kUSX-Yrk"
+!wget --no-check-certificate -O 'Perceiver-MI-Training-Data.zip' "https://onedrive.live.com/download?cid=8A0D502FC99C608F&resid=8A0D502FC99C608F%2118738&authkey=AF6k171kUSX-Yrk"
 ```
 
 ### Encoding info:
@@ -25,7 +25,7 @@
 ### 3) Works with any type of data sampling and any model sequence length
 
 ```
-!wget --no-check-certificate -O 'Euterpe-Training-Data.zip' "https://onedrive.live.com/download?cid=8A0D502FC99C608F&resid=8A0D502FC99C608F%2118740&authkey=ANEK-9WanNFyalw"
+!wget --no-check-certificate -O 'Perceiver-Piano-Training-Data.zip' "https://onedrive.live.com/download?cid=8A0D502FC99C608F&resid=8A0D502FC99C608F%2118740&authkey=ANEK-9WanNFyalw"
 ```
 
 ### Encoding info:
