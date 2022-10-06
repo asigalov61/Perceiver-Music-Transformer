@@ -44,9 +44,7 @@
 !wget --no-check-certificate -O 'Perceiver-LAKH-Basic-MIDI-Training-Data.zip' "https://onedrive.live.com/download?cid=8A0D502FC99C608F&resid=8A0D502FC99C608F%2118747&authkey=AOh49HAnHNAvvwk"
 ```
 
-### Encoding info:
-### ...
-### Compositions separator/Intro/Zero sequence: ...
+### For encoding reference please see python code in this section of the repo
 
 ***
 
@@ -60,9 +58,7 @@
 !wget --no-check-certificate -O 'Perceiver-LAKH-Full-MIDI-Training-Data.zip' "https://onedrive.live.com/download?cid=8A0D502FC99C608F&resid=8A0D502FC99C608F%2118748&authkey=ABz-kMlO-mChNN4"
 ```
 
-### Encoding info:
-### ...
-### Compositions separator/Intro/Zero sequence: ...
+### For encoding reference please see python code in this section of the repo
 
 ***
 
