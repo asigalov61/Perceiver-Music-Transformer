@@ -2,6 +2,10 @@
 
 ***
 
+# Main Perceiver Training Data Packs (~420k+ MIDIs each)
+
+***
+
 ## Perceiver Multi-Instrumental Training Data Pack
 
 ### 1) Based on Euterpe Training Data
@@ -34,7 +38,7 @@
 
 ***
 
-# Extra Perceiver Training Data Packs
+# Extra Perceiver Training Data Packs (full LAKH)
 
 ***
 
