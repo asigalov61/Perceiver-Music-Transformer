@@ -151,8 +151,8 @@ def augment(inputs):
       if (note[0] // 11) != 9:
         aug_note1 = copy.deepcopy(note)
         aug_note2 = copy.deepcopy(note)
-        aug_note1[2] += i
-        aug_note2[2] -= i
+        aug_note1[3] += i
+        aug_note2[3] -= i
       else:
         aug_note1 = note
         aug_note2 = note
@@ -474,9 +474,11 @@ print('Generating...')
 
 out2 = copy.deepcopy(inputs[:number_of_prime_tokens])
 
+aug_inp = augment(inputs)
+
 for i in tqdm(range(number_of_continuation_notes)):
 
-  inp = augment(inputs)
+  inp = copy.deepcopy(aug_inp)
 
   inp = inp[:(8192 * 4)]
 
