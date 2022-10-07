@@ -303,7 +303,7 @@ plt.show()
 #@title Single Continuation Block Generator
 
 #@markdown NOTE: Play with the settings to get different results
-number_of_prime_tokens = 512 #@param {type:"slider", min:16, max:512, step:16}
+number_of_prime_tokens = 256 #@param {type:"slider", min:128, max:512, step:16}
 number_of_tokens_to_generate = 512 #@param {type:"slider", min:64, max:512, step:32}
 temperature = 0.8 #@param {type:"slider", min:0.1, max:1, step:0.1}
 
@@ -321,9 +321,9 @@ print('Model temperature:', temperature)
 print('=' * 70)
 print('Generating...')
 
-inp = [0, 127+128, 127+256, 0+384] * 8192
+inp = inputs[:4] * 8192
 
-inp = inp[:-(number_of_prime_tokens+len(inputs[:number_of_prime_tokens]))] + inputs[:number_of_prime_tokens]
+inp = inp[(1024-number_of_prime_tokens)+len(inputs[:number_of_prime_tokens]):] + inputs[:number_of_prime_tokens]
 
 inp = torch.LongTensor(inp).cuda()
 
@@ -409,7 +409,7 @@ plt.show()
 #@title Auto-Continue Custom MIDI
 
 number_of_continuation_notes = 400 #@param {type:"slider", min:10, max:2000, step:10}
-number_of_prime_tokens = 512 #@param {type:"slider", min:64, max:512, step:4}
+number_of_prime_tokens = 256 #@param {type:"slider", min:128, max:512, step:16}
 temperature = 0.8 #@param {type:"slider", min:0.1, max:1, step:0.1}
 
 #===================================================================
@@ -420,7 +420,7 @@ print('=' * 70)
 print('Generation settings:')
 print('=' * 70)
 print('Number of continuation notes:', number_of_continuation_notes)
-print('Number of memory tokens:', number_of_prime_tokens)
+print('Number of prime tokens:', number_of_prime_tokens)
 print('Model temperature:', temperature)
 
 print('=' * 70)
@@ -430,9 +430,9 @@ out2 = copy.deepcopy(inputs[:number_of_prime_tokens])
 
 for i in tqdm(range(number_of_continuation_notes)):
 
-  inp = [0, 127+128, 127+256, 0+384] * 8192
+  inp = inputs[:4] * 8192
 
-  inp = inp[:-(number_of_prime_tokens+len(out2))] + out2
+  inp = inp[(1024-number_of_prime_tokens)+len(out2):] + out2
 
   inp = torch.LongTensor(inp).cuda()
 
