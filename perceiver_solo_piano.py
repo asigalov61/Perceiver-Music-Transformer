@@ -417,9 +417,11 @@ print('Generating...')
 
 out2 = copy.deepcopy(inputs[:number_of_prime_tokens])
 
+aug_inp = augment(inputs)
+
 for i in tqdm(range(number_of_continuation_notes)):
 
-  inp = augment(inputs)
+  inp = copy.deepcopy(aug_inp)
 
   inp = inp[:(4096 * 4)]
 
