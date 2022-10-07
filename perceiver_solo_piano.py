@@ -131,6 +131,44 @@ events_matrix = []
 
 itrack = 1
 
+#==================================================
+
+# Memories augmentator
+
+def augment(inputs):
+
+  outs = []
+  outy = []
+
+  for i in range(1, 12):
+
+    out1 = []
+    out2 = []
+
+    for j in range(0, len(inputs), 4):
+      note = inputs[j:j+4]
+      aug_note1 = copy.deepcopy(note)
+      aug_note2 = copy.deepcopy(note)
+      aug_note1[2] += i
+      aug_note2[2] -= i
+
+      out1.append(aug_note1)
+      out2.append(aug_note2)
+
+    outs.append(out1[random.randint(0, int(len(out1) / 2)):random.randint(int(len(out1) / 2), len(out1))])
+    outs.append(out2[random.randint(0, int(len(out2) / 2)):random.randint(int(len(out2) / 2), len(out2))])
+
+  for i in range(64):
+    outy.extend(random.choice(outs))
+
+  outy1 = []
+  for o in outy:
+    outy1.extend(o)
+
+  return outy1
+
+#==================================================
+
 while itrack < len(score):
     for event in score[itrack]:         
         if event[0] == 'note' and event[3] != 9:
@@ -250,7 +288,7 @@ plt.show()
 #@title Single Continuation Block Generator
 
 #@markdown NOTE: Play with the settings to get different results
-number_of_prime_tokens = 256 #@param {type:"slider", min:256, max:1020, step:4}
+number_of_prime_tokens = 512 #@param {type:"slider", min:256, max:1020, step:4}
 number_of_tokens_to_generate = 512 #@param {type:"slider", min:64, max:512, step:32}
 temperature = 0.8 #@param {type:"slider", min:0.1, max:1, step:0.1}
 
@@ -268,9 +306,11 @@ print('Model temperature:', temperature)
 print('=' * 70)
 print('Generating...')
 
-inp = inputs[:4] * 4096
+inp = augment(inputs)
 
-inp = inp[(1024-number_of_prime_tokens)+len(inputs[:number_of_prime_tokens]):] + inputs[:number_of_prime_tokens]
+inp = inp[:(4096 * 4)]
+
+inp = inp[(512+len(inputs[:number_of_prime_tokens])):] + inputs[:number_of_prime_tokens]
 
 inp = torch.LongTensor(inp).cuda()
 
@@ -357,8 +397,8 @@ plt.show()
 
 #@title Auto-Continue Custom MIDI
 
-number_of_continuation_notes = 400 #@param {type:"slider", min:10, max:2000, step:10}
-number_of_prime_tokens = 512 #@param {type:"slider", min:64, max:512, step:4}
+number_of_continuation_notes = 100 #@param {type:"slider", min:10, max:500, step:10}
+number_of_prime_tokens = 256 #@param {type:"slider", min:64, max:512, step:4}
 temperature = 0.8 #@param {type:"slider", min:0.1, max:1, step:0.1}
 
 #===================================================================
@@ -379,13 +419,15 @@ out2 = copy.deepcopy(inputs[:number_of_prime_tokens])
 
 for i in tqdm(range(number_of_continuation_notes)):
 
-  inp = inputs[:4] * 4096
+  inp = augment(inputs)
 
-  inp = inp[((1024-number_of_prime_tokens)+len(out2)):] + out2
+  inp = inp[:(4096 * 4)]
 
-  inp = torch.LongTensor(inp).cuda()
+  inp = inp[(512+len(out2)):] + out2
 
-  out = model.generate(inp[None, ...], 
+  inp1 = torch.LongTensor(inp).cuda()
+
+  out = model.generate(inp1[None, ...], 
                       4, 
                       temperature=temperature)  
 
