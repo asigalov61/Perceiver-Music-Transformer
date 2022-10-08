@@ -49,7 +49,7 @@ print('Loading needed modules. Please wait...')
 import os
 import random
 import copy
-
+import math
 from collections import OrderedDict
 
 from tqdm.notebook import tqdm
@@ -365,7 +365,9 @@ print('Model temperature:', temperature)
 print('=' * 70)
 print('Generating...')
 
-inp = augment(inputs)
+# inp = augment(inputs)
+
+inp = inputs * math.ceil((8192 * 4) / len(inputs))
 
 inp = inp[:(8192 * 4)]
 
@@ -474,11 +476,13 @@ print('Generating...')
 
 out2 = copy.deepcopy(inputs[:number_of_prime_tokens])
 
-aug_inp = augment(inputs)
+# aug_inp = augment(inputs)
 
 for i in tqdm(range(number_of_continuation_notes)):
 
-  inp = copy.deepcopy(aug_inp)
+  # inp = copy.deepcopy(aug_inp)
+
+  inp = inputs * math.ceil((8160 * 6) / len(inputs))
 
   inp = inp[:(8192 * 4)]
 
