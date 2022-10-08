@@ -23,6 +23,15 @@
 
 ***
 
+## Full MIDI Version
+
+[![Open In Colab][colab-badge]][colab-notebook2]
+
+[colab-notebook2]: <https://colab.research.google.com/github/asigalov61/Perceiver-Music-Transformer/blob/main/Perceiver_Full_MIDI.ipynb>
+[colab-badge]: <https://colab.research.google.com/assets/colab-badge.svg>
+
+***
+
 ## Useful links:
 
 ### https://github.com/google-research/perceiver-ar
