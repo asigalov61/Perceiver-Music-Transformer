@@ -13,7 +13,7 @@
 
 ### 1) Here is a brand new MIDI processor for Perceiver
 ### 2) This processor can handle both Solo Piano and Multi-Instrumental MIDIs
-### 3) Provided code/colab uses LAKH MIDI dataset because it is a good baseline, however you are welcome to try it on something like MMD MIDI dataset or GiantMIDI dataset (for SOlo Piano).
+### 3) Provided code/colab uses LAKH MIDI dataset because it is a good baseline. However, you are welcome to try it on something like MMD MIDI dataset or GiantMIDI dataset (for Solo Piano).
 ### 4) Updated training/generating code/colabs will be added shortly.
 
 ***
