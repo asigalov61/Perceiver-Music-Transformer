@@ -115,6 +115,7 @@ input_files_count = START_FILE_NUMBER
 files_count = LAST_SAVED_BATCH_COUNT
 
 melody_chords_f = []
+mel_cho_batches = []
 
 stats = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
@@ -275,9 +276,9 @@ for f in tqdm(filez[START_FILE_NUMBER:]):
                     
                     for i in range(num_batches):
                         
-                        melody_chords_f.extend(mel_cho[i*512*4:((i+1)*512*4)])
-                        melody_chords_f.extend(mel_cho[(i+1)*512*4:((i+2)*512*4)])
-                        melody_chords_f.extend(mel_cho[(i+2)*512*4:((i+3)*512*4)])
+                        mel_cho_batches.append(mel_cho[i*512*4:((i+1)*512*4)])
+                        mel_cho_batches.append(mel_cho[(i+1)*512*4:((i+2)*512*4)])
+                        mel_cho_batches.append(mel_cho[(i+2)*512*4:((i+3)*512*4)])
                         
                     #=======================================================
 
@@ -288,6 +289,14 @@ for f in tqdm(filez[START_FILE_NUMBER:]):
                     if files_count % 5000 == 0:
                       print('SAVING !!!')
                       print('=' * 70)
+                      print('Randomizing batches...')
+                      print('=' * 70)
+                      random.shuffle(mel_cho_batches)
+                      print('Prepping final data...')
+                      print('=' * 70)
+                      for m in tqdm(mel_cho_batches):
+                          melody_chords_f.extend(m)
+                      mel_cho_batches = []                      
                       print('Saving processed files...')
                       print('=' * 70)
                       print('Data check:', min(melody_chords_f), '===', max(melody_chords_f), '===', len(list(set(melody_chords_f))), '===', len(melody_chords_f))
@@ -312,6 +321,15 @@ for f in tqdm(filez[START_FILE_NUMBER:]):
         continue
 
 # Saving last processed files...
+print('SAVING !!!')
+print('=' * 70)
+print('Randomizing batches...')
+print('=' * 70)
+random.shuffle(mel_cho_batches)
+print('Prepping final data...')
+print('=' * 70)
+for m in tqdm(mel_cho_batches):
+    melody_chords_f.extend(m)           
 print('=' * 70)
 print('Saving processed files...')
 print('=' * 70)
