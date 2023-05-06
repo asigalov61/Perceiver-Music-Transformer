@@ -1,6 +1,6 @@
-# Perceiver Music Transformer Pre-Trained Models
+# Perceiver Music Transformer Pre-Trained Model
 
 ***
 
 ### Project Los Angeles
-### Tegridy Code 2022
+### Tegridy Code 2023
