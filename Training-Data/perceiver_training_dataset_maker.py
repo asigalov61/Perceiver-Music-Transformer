@@ -270,15 +270,19 @@ for f in tqdm(filez[START_FILE_NUMBER:]):
                     # FINAL PROCESSING
                     #=======================================================
                     
-                    # Assembling overlapping batches (1024 notes prefix/context and 512 notes training sequence)
+                    # Assembling batches (1024 notes prefix/context and 512 notes training sequence)
                     
                     num_batches = (len(mel_cho) // 2048) - 3
                     
+                    mel_cho1 = []
+                    
                     for i in range(num_batches):
                         
-                        mel_cho_batches.append(mel_cho[i*512*4:((i+1)*512*4)])
-                        mel_cho_batches.append(mel_cho[(i+1)*512*4:((i+2)*512*4)])
-                        mel_cho_batches.append(mel_cho[(i+2)*512*4:((i+3)*512*4)])
+                        mel_cho1.extend(mel_cho[i*512*4:((i+1)*512*4)])
+                        mel_cho1.extend(mel_cho[(i+1)*512*4:((i+2)*512*4)])
+                        mel_cho1.extend(mel_cho[(i+2)*512*4:((i+3)*512*4)])
+                        
+                    mel_cho_batches.append(mel_cho1)
                         
                     #=======================================================
 
