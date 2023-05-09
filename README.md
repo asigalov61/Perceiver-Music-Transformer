@@ -8,11 +8,11 @@
 
 ***
 
-## Multi-Instrumental Version
+## Original Version
 
 [![Open In Colab][colab-badge]][colab-notebook]
 
-[colab-notebook]: <https://colab.research.google.com/github/asigalov61/Perceiver-Music-Transformer/blob/main/Perceiver_Multi_Instrumental.ipynb>
+[colab-notebook]: <https://colab.research.google.com/github/asigalov61/Perceiver-Music-Transformer/blob/main/Perceiver_Music_Transformer.ipynb>
 [colab-badge]: <https://colab.research.google.com/assets/colab-badge.svg>
 
 ***
